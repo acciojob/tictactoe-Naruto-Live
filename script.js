@@ -1,7 +1,7 @@
 let player1 = "";
 let player2 = "";
 
-let currentPlayer = "X";
+let currentPlayer = "x";
 let gameOver = false;
 
 let board = ["", "", "", "", "", "", "", "", ""];
@@ -12,14 +12,14 @@ const message = document.querySelector(".message");
 
 submitBtn.addEventListener("click", function () {
 
-    player1 = document.getElementById("player-1").value;
-    player2 = document.getElementById("player-2").value;
+    Player1 = document.getElementById("player1").value;
+    Player2 = document.getElementById("player2").value;
 
-    if (!player1 || !player2) return;
+    if (!Player1 || !Player2) return;
 
     game.classList.remove("hidden");
 
-    message.innerText = `${player1}, you're up`;
+    message.innerText = `${Player1}, you're up`;
 });
 
 const cells = document.querySelectorAll(".cell");
@@ -41,12 +41,12 @@ cells.forEach((cell) => {
         if (checkWinner()) {
 
             let winnerName =
-                currentPlayer === "X"
-                    ? player1
-                    : player2;
+                currentPlayer === "x"
+                    ? Player1
+                    : Player2;
 
             message.innerText =
-                `${winnerName}, congratulations you won!`;
+                `${winnerName} congratulations you won!`;
 
             gameOver = true;
 
@@ -54,17 +54,18 @@ cells.forEach((cell) => {
         }
 
         currentPlayer =
-            currentPlayer === "X"
-                ? "O"
-                : "X";
+            currentPlayer === "x"
+                ? "o"
+                : "x";
 
         message.innerText =
-            currentPlayer === "X"
-                ? `${player1}, you're up`
-                : `${player2}, you're up`;
+            currentPlayer === "x"
+                ? `${Player1}, you're up`
+                : `${Player2}, you're up`;
     });
 
 });
+
 
 function checkWinner() {
 
